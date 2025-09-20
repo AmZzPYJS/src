@@ -14,13 +14,9 @@ fn main() {
 
     let conv: u32 = input.trim().parse().expect("Veuillez entrer un nombre valide");
 
-    let message if conv == nombre {
-        "Tu as trouvé le bon nombre !"
-    } else if xonv < nombre {
-        "Le nombre est plus grand !"
-    } else {
-        "Le nombre est plus petit !"
-    };
-
-    println!("{message}");
+    match conv.cmp(&nombre) {
+        Ordering::Less => println!("Le nombre est plus grand !"),
+        Ordering::Greater => println!("Le nombre est plus petit !"),
+        Ordering::Equal => println!("Tu as trouvé le bon nombre !"),
+    }
 }
