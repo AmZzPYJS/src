@@ -14,11 +14,13 @@ fn main() {
 
     let conv: u32 = input.trim().parse().expect("Veuillez entrer un nombre valide");
 
-    if conv == nombre {
-        println!("Tu as trouvé le bon nombre !");
+    let message if conv == nombre {
+        "Tu as trouvé le bon nombre !"
     } else if xonv < nombre {
-        println!("Le nombre est plus grand !");
+        "Le nombre est plus grand !"
     } else {
-        println!("Le nombre est plus petit !");
-    }
+        "Le nombre est plus petit !"
+    };
+
+    println!("{message}");
 }
