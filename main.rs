@@ -14,6 +14,7 @@
 use std::io; /// Importe le module pour l’entrée/sortie.
 use std::cmp::Ordering; /// Importe le module pour la comparaison (Less, Greater, Equal).
 use rand::Rng; /// Importe le module pour générer des nombres aléatoires.
+use console::Style; /// Importe le module pour colorer ton code et le rendre plus jolie.
 
 /// Lit un entier non signé (`u32`) depuis l'entrée standard.
 /// 
@@ -62,8 +63,10 @@ fn has_found(comparison: Ordering) -> bool {
 /// - Demande à l’utilisateur de saisir un nombre.
 /// - Compare et affiche le résultat jusqu’à ce que l’utilisateur trouve la bonne valeur.
 fn main() {
-    let nombre = rand::thread_rng().gen_range(1..=100);
-    println!("Devine mon nombre !");
+    let bleu = Style::new().blue().bold();
+    let mut rng = rand::rng(); 
+    let nombre = rng.random_range(1..=100); 
+    println!("{}", bleu.apply_to("Devine mon nombre !"));
     #[cfg(debug_assertions)]
     println!("(Debug) Le nombre secret est : {nombre}");
 
