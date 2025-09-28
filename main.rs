@@ -11,9 +11,9 @@
 //!
 //! Exécutez ce programme avec `cargo run`.
 
-use std::io; //! Importe le module pour l’entrée/sortie.
-use std::cmp::Ordering; //! Importe le module pour la comparaison (Less, Greater, Equal).
-use rand::Rng; //! Importe le module pour générer des nombres aléatoires.
+use std::io; /// Importe le module pour l’entrée/sortie.
+use std::cmp::Ordering; /// Importe le module pour la comparaison (Less, Greater, Equal).
+use rand::Rng; /// Importe le module pour générer des nombres aléatoires.
 
 /// Lit un entier non signé (`u32`) depuis l'entrée standard.
 /// 
@@ -64,6 +64,8 @@ fn has_found(comparison: Ordering) -> bool {
 fn main() {
     let nombre = rand::thread_rng().gen_range(1..=100);
     println!("Devine mon nombre !");
+    #[cfg(debug_assertions)]
+    println!("(Debug) Le nombre secret est : {nombre}");
 
     loop {
         println!("Entrez un nombre :");
