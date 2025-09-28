@@ -86,3 +86,27 @@ fn main() {
         }
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*; // Importe toutes les fonctions du module parent (read_int_from_stdin, get_ordering, etc.)
+    use std::cmp::Ordering;
+
+    #[test]
+    fn twelve_equals_twelve() {
+        let result = get_ordering(12, 12);
+        assert_eq!(result, Ordering::Equal); // Vérifie que 12 == 12
+    }
+
+    #[test]
+    fn twelve_greater_than_five() {
+        let result = get_ordering(5, 12);
+        assert_eq!(result, Ordering::Greater); // Vérifie que 12 > 5
+    }
+
+    #[test]
+    fn twelve_lesser_than_twenty() {
+        let result = get_ordering(20, 12);
+        assert_eq!(result, Ordering::Less); // Vérifie que 12 < 20
+    }
+}
